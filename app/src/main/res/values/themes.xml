@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.TecnoTotalApp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:textAlignment">center</item>
+    </style>
+    
+    <style name="BottomNavigation">
+        <item name="android:background">@color/moradofuerte</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+    </style>
+    
+    
+</resources>
