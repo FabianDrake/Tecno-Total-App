@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
     private val homeFragment = HomeFragment()
     private val productsFragment = ProductsFragment()
     private val cartFragment = CartFragment()
@@ -30,5 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        // Add this line to display HomeFragment when the app starts
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, homeFragment).commit()
     }
 }
