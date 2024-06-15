@@ -6,12 +6,10 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private val homeFragment = HomeFragment()
+    private lateinit var homeFragment: HomeFragment
     private val productsFragment = ProductsFragment()
     private val cartFragment = CartFragment()
-    private val userFragment = UserFragment()
-
-
+    private lateinit var userFragment: UserFragment
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val selectedFragment: Fragment = when (item.itemId) {
@@ -28,6 +26,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Get the username from the Intent
+        val username = intent.getStringExtra("username") ?: ""
+
+        // Create a new HomeFragment and UserFragment with the username
+        homeFragment = HomeFragment.newInstance(username)
+        userFragment = UserFragment.newInstance(username)
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

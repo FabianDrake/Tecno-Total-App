@@ -9,6 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class HomeFragment : Fragment() {
+    private var username: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            username = it.getString("username")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,12 +29,21 @@ class HomeFragment : Fragment() {
         val offerImage: ImageView = view.findViewById(R.id.offer_image)
 
         // Set the welcome text
-        welcomeText.text = "¡Bienvenidos a nuestra app!"
+        welcomeText.text = "¡Bienvenido, $username!"
 
         // Set the offer image
         // Make sure to replace R.drawable.offer_image with your actual offer image
         offerImage.setImageResource(R.drawable.offer_image)
-
         return view
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(username: String) =
+            HomeFragment().apply {
+                arguments = Bundle().apply {
+                    putString("username", username)
+                }
+            }
     }
 }

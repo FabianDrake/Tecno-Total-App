@@ -35,9 +35,10 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordField.text.toString()
 
             if (usuarios.any { it.username == username && it.password == password }) {
+                // Create a new Intent to start MainActivity
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("username", username)
                 startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
