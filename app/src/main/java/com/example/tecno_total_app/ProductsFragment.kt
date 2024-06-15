@@ -1,59 +1,48 @@
 package com.example.tecno_total_app
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProductsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProductsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val products = arrayOf(
+        Producto(0, "Producto 0", "Marca 0", 10.0),
+        Producto(1, "Producto 1", "Marca 1", 20.0),
+        Producto(2, "Producto 2", "Marca 2", 30.0),
+        Producto(3, "Producto 3", "Marca 3", 40.0),
+        Producto(4, "Producto 4", "Marca 4", 50.0),
+        Producto(5, "Producto 5", "Marca 5", 60.0),
+        Producto(6, "Producto 6", "Marca 6", 70.0),
+        Producto(7, "Producto 7", "Marca 7", 80.0),
+        Producto(8, "Producto 8", "Marca 8", 90.0),
+        Producto(9, "Producto 9", "Marca 9", 100.0)
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_products, container, false)
+        val view = inflater.inflate(R.layout.fragment_products, container, false)
+        val productsLayout: GridLayout = view.findViewById(R.id.products_layout)
+
+        // Aquí puedes añadir el código para mostrar los productos en productsLayout
+        // y manejar los clics en los productos.
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProductsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProductsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun startProductoActivity(producto: Producto) {
+        val intent = Intent(context, ProductoActivity::class.java).apply {
+            putExtra("id", producto.id)
+            putExtra("nombre", producto.nombre)
+            putExtra("marca", producto.marca)
+            putExtra("precio", producto.precio)
+        }
+        startActivity(intent)
     }
 }

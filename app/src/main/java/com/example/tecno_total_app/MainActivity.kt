@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     private val cartFragment = CartFragment()
     private val userFragment = UserFragment()
 
+
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val selectedFragment: Fragment = when (item.itemId) {
             R.id.home -> homeFragment
