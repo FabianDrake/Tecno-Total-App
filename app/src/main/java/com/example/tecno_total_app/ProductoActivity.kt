@@ -21,11 +21,12 @@ class ProductoActivity : AppCompatActivity() {
         val nombre = intent.getStringExtra("nombre")
         val marca = intent.getStringExtra("marca")
         val precio = intent.getDoubleExtra("precio", 0.0)
+        val imagenRes = intent.getIntExtra("imagen", 0)
 
         description.text = "Nombre del Producto: ${nombre}\n\n" +
                 "Marca del producto: ${marca}\n\n" +
                 "Precio del producto: $${precio}"
-        // Aquí puedes añadir el código para mostrar la imagen del producto
-        // basado en el id del producto o alguna otra lógica que prefieras.
+        imagen.setImageResource(imagenRes)
+
     }
 }

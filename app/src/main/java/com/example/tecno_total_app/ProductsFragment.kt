@@ -12,16 +12,16 @@ import androidx.fragment.app.Fragment
 
 class ProductsFragment : Fragment() {
     private val products = arrayOf(
-        Producto(0, "Producto 0", "Marca 0", 10.0),
-        Producto(1, "Producto 1", "Marca 1", 20.0),
-        Producto(2, "Producto 2", "Marca 2", 30.0),
-        Producto(3, "Producto 3", "Marca 3", 40.0),
-        Producto(4, "Producto 4", "Marca 4", 50.0),
-        Producto(5, "Producto 5", "Marca 5", 60.0),
-        Producto(6, "Producto 6", "Marca 6", 70.0),
-        Producto(7, "Producto 7", "Marca 7", 80.0),
-        Producto(8, "Producto 8", "Marca 8", 90.0),
-        Producto(9, "Producto 9", "Marca 9", 100.0)
+        Producto(0, "Tarjeta Grafica RTX", "Nvidia", 3000.00, R.drawable.img1),
+        Producto(1, "Mouse Gamer Alambrico", "Logitech", 800.00, R.drawable.img2),
+        Producto(2, "Teclado Negro", "Crucial", 300.00,R.drawable.img3),
+        Producto(3, "Gabinete con luz led", "Aourus Gaming", 4000.00, R.drawable.img4),
+        Producto(4, "Monitor 144hz", "Gigabyte", 6000.00, R.drawable.img5),
+        Producto(5, "Motherboard Gamer", "Aourus Gaming", 1500.00, R.drawable.img6),
+        Producto(6, "Duo tarjetas RAM", "Fury Gaming", 1200.00, R.drawable.img7),
+        Producto(7, "SSD m.2 500GB", "Crucial", 800.00, R.drawable.img8),
+        Producto(8, "Tableta de dibujo", "Crucial", 9000.00, R.drawable.img9),
+        Producto(9, "Auriculares con microfono Gamer", "Onikuma", 500.00, R.drawable.img10)
     )
 
     override fun onCreateView(
@@ -52,6 +52,7 @@ class ProductsFragment : Fragment() {
             putExtra("nombre", producto.nombre)
             putExtra("marca", producto.marca)
             putExtra("precio", producto.precio)
+            putExtra("imagen", producto.imagen)
         }
         startActivity(intent)
     }

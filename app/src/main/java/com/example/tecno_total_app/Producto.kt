@@ -11,7 +11,8 @@ data class Producto(
     val id: Int,
     val nombre: String,
     val marca: String,
-    val precio: Double
+    val precio: Double,
+    val imagen: Int
 
 )
 /*class Producto : AppCompatActivity() {
