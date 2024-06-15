@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e8c8a1"
+    android:background="@color/white"
     tools:context=".Producto">
 
     <TextView
         android:id="@+id/txtTitulo"
+        android:textColor="@color/moradofuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -34,6 +35,7 @@
 
         <TextView
             android:id="@+id/textDetalles"
+            android:textColor="@color/moradofuerte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Detalles"
@@ -48,6 +50,7 @@
 
         <TextView
             android:id="@+id/textDescripcion"
+            android:textColor="@color/moradofuerte"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:padding="10dp"

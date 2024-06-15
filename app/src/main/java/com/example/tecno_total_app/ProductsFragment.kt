@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 
 class ProductsFragment : Fragment() {
@@ -30,8 +31,17 @@ class ProductsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_products, container, false)
         val productsLayout: GridLayout = view.findViewById(R.id.products_layout)
 
-        // Aquí puedes añadir el código para mostrar los productos en productsLayout
-        // y manejar los clics en los productos.
+        for (i in 0 until productsLayout.childCount) {
+            val constraintLayout = productsLayout.getChildAt(i)
+            if (constraintLayout is ConstraintLayout) {
+                val imageView = constraintLayout.getChildAt(0)
+                if (imageView is ImageView) {
+                    imageView.setOnClickListener {
+                        startProductoActivity(products[i])
+                    }
+                }
+            }
+        }
 
         return view
     }

@@ -30,6 +30,9 @@
             </intent-filter>
         </activity>
 
+        <!-- Asegúrate de que ProductoActivity esté declarado aquí -->
+        <activity android:name=".ProductoActivity" />
+
     </application>
 
 </manifest>
