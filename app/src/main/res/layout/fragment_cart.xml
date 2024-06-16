@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".CartFragment">
 
     <TextView
@@ -13,17 +13,36 @@
         android:layout_height="wrap_content"
         android:text="Carrito"
         android:textSize="24sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/tvCartTitle"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:textColor="@color/moradofuerte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: "
+        android:textSize="18sp"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnPagar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        android:textSize="18sp"
+        android:gravity="center" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+    </TextView>
+
+</LinearLayout>

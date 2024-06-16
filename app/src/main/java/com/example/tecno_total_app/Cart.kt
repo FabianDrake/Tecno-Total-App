@@ -3,15 +3,16 @@ package com.example.tecno_total_app
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class Cart {
-    companion object {
-        private val _productos = MutableLiveData<List<Producto>>(emptyList())
-        val productos: LiveData<List<Producto>> get() = _productos
+object Cart {
+    val productos = MutableLiveData<MutableList<Producto>>()
 
-        fun agregarProducto(producto: Producto) {
-            val newList = _productos.value.orEmpty().toMutableList()
-            newList.add(producto)
-            _productos.value = newList
-        }
+    fun agregarProducto(producto: Producto) {
+        val currentProducts = productos.value ?: mutableListOf()
+        currentProducts.add(producto)
+        productos.value = currentProducts
+    }
+
+    fun limpiarCarrito() {
+        productos.value = mutableListOf()
     }
 }
