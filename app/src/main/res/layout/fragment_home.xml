@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8CEF8"
     tools:context=".HomeFragment">
 
     <TextView
         android:id="@+id/welcome_text"
+        android:textColor="@color/moradofuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -32,6 +34,17 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/logo" />
 
+    <TextView
+        android:id="@+id/tvConoce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offer_image"
+        android:layout_centerHorizontal="true"
+        android:text="Conoce nuestros productos!"
+        android:textSize="18sp"
+        android:textColor="@color/moradofuerte"
+        android:layout_marginTop="16dp"/>
+
     <ImageView
         android:id="@+id/offer_image"
         android:layout_width="303dp"
@@ -46,5 +59,8 @@
         android:layout_marginBottom="270dp"
         android:contentDescription="@string/offer_image"
         android:src="@drawable/offer_image" />
+
+
+
 
 </RelativeLayout>

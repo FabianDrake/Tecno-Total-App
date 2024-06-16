@@ -12,6 +12,7 @@ class ProductoActivity : AppCompatActivity() {
     private lateinit var description: TextView
     private lateinit var imagen: ImageView
     private lateinit var btnAddToCart: Button
+    private lateinit var btnAtras: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class ProductoActivity : AppCompatActivity() {
         description = findViewById(R.id.textDescripcion)
         imagen = findViewById(R.id.imagenProducto)
         btnAddToCart = findViewById(R.id.btnAddToCart)
+        btnAtras = findViewById(R.id.btnAtras)
 
         val id = intent.getIntExtra("id", 0)
         val nombre = intent.getStringExtra("nombre")
@@ -37,6 +39,10 @@ class ProductoActivity : AppCompatActivity() {
         btnAddToCart.setOnClickListener {
             Cart.agregarProducto(producto)
             Toast.makeText(this, "Producto añadido al carrito", Toast.LENGTH_SHORT).show()
+        }
+
+        btnAtras.setOnClickListener {
+            finish()
         }
     }
 }
