@@ -7,10 +7,13 @@
     tools:context=".CartFragment">
 
     <TextView
-        android:id="@+id/cartTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvCartTitle"
+        android:textColor="@color/moradofuerte"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No hay productos en el carrito"
+        android:text="Carrito"
+        android:textSize="24sp"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -18,7 +21,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvCartTitle"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

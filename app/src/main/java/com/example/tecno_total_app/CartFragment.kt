@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CartFragment : Fragment() {
 
-    private lateinit var cartTextView: TextView
+    private lateinit var recyclerViewCart: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,10 +24,11 @@ class CartFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
 
-        cartTextView = view.findViewById<TextView>(R.id.cartTextView)
+        recyclerViewCart = view.findViewById<RecyclerView>(R.id.recyclerViewCart)
+        recyclerViewCart.layoutManager = LinearLayoutManager(context)
 
         Cart.productos.observe(viewLifecycleOwner, Observer { productos ->
-            cartTextView.text = "Productos en el carrito: ${productos.joinToString { it.nombre }}"
+            recyclerViewCart.adapter = CartAdapter(productos)
         })
 
         return view
