@@ -2,13 +2,16 @@ package com.example.tecno_total_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class ProductoActivity : AppCompatActivity() {
 
     private lateinit var description: TextView
     private lateinit var imagen: ImageView
+    private lateinit var btnAddToCart: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +19,7 @@ class ProductoActivity : AppCompatActivity() {
 
         description = findViewById(R.id.textDescripcion)
         imagen = findViewById(R.id.imagenProducto)
+        btnAddToCart = findViewById(R.id.btnAddToCart)
 
         val id = intent.getIntExtra("id", 0)
         val nombre = intent.getStringExtra("nombre")
@@ -28,5 +32,11 @@ class ProductoActivity : AppCompatActivity() {
                 "Precio del producto: $${precio}"
         imagen.setImageResource(imagenRes)
 
+        val producto = Producto(id, nombre!!, marca!!, precio, imagenRes)
+
+        btnAddToCart.setOnClickListener {
+            Cart.agregarProducto(producto)
+            Toast.makeText(this, "Producto añadido al carrito", Toast.LENGTH_SHORT).show()
+        }
     }
 }
